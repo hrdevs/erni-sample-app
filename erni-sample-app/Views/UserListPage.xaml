@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ernisampleapp.Views.UserListPage">
+
+    <StackLayout Padding="10">
+        <Label Text="ERNI Sample App"
+               HorizontalOptions="CenterAndExpand"/>
+        <ListView x:Name="UserListView"
+                  ItemsSource="{Binding UserList}"
+                  ItemTapped="ListView_ItemTapped"
+                  HasUnevenRows="True"
+                  SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"/>
+                                <ColumnDefinition Width="70*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout>
+                                <Label Text="{Binding id}"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Column="1">
+                                <Label Text="{Binding name}"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
