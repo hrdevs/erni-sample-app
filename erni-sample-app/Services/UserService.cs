@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using erni_sample_app;
 using ernisampleapp.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -21,8 +22,6 @@ namespace ernisampleapp.Services
         public UserService()
         {
             _httpClient = new HttpClient();
-            //_userModels = new List<UserModel>();
-            _userList = new ObservableCollection<UserModel>();
         }
 
         //public async Task<List<UserModel>> GetUsers()
