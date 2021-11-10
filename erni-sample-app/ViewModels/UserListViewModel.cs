@@ -31,7 +31,6 @@ namespace ernisampleapp.ViewModels
 
         public UserListViewModel()
         {
-            _userList = new ObservableCollection<UserModel>();
             _userService = new UserService();
 
             Task.Run(GetUsers);
@@ -41,16 +40,21 @@ namespace ernisampleapp.ViewModels
         {
             var userList = await _userService.GetUsers();
 
-            UserList.Clear();
+            UserList = userList;
 
-            foreach(var user in userList)
+            RemoveDuplicateUsers();
+        }
+
+        private void RemoveDuplicateUsers()
+        {
+            foreach (var user in UserList)
             {
-                //don't add into list if it already exists
-                if(!UserList.Any(p => p.id == user.id))
+                //remove a duplicate user by id
+                if (UserList.Any(p => p.id == user.id))
                 {
-                    UserList.Add(user);
+                    UserList.Remove(user);
                 }
-            }            
+            }
         }
 
         public ICommand GetUsersCommand { get; set; }

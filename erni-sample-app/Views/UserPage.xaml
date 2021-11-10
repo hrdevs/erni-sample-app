@@ -7,14 +7,16 @@
     <StackLayout VerticalOptions="CenterAndExpand"
                  HorizontalOptions="CenterAndExpand">
         <Label x:Name="Username"
+               Text="{Binding Name}"
                VerticalOptions="Center"
                HorizontalOptions="Center"/>
         <Image x:Name="UserImage"
                VerticalOptions="Center"
-               HorizontalOptions="Center"/>
+               HorizontalOptions="Center"
+               Source="{Binding ImageUrl}"/>
         <Button Text="Go Back"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="CenterAndExpand"
-                Clicked="Button_Clicked"/>
+                Clicked="GoBackBtn_Clicked"/>
     </StackLayout>
 </ContentPage>
