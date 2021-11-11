@@ -37,7 +37,7 @@ namespace ernisampleapp.ViewModels
             Task.Run(GetUsers);
         }
 
-        private async Task GetUsers()
+        public async Task GetUsers()
         {
             var userList = await _userService.GetUsers();
 
